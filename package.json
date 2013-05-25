@@ -11,7 +11,8 @@
     "jade": "*",
     "less-middleware": "*",
     "passport": "*",
-    "passport-facebook": "*"
+    "passport-facebook": "*",
+    "passport-twitter": "*"
   },
   "devDependencies": {
     "jasmine-node": "*"
