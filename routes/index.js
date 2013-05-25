@@ -1,8 +1,11 @@
+var index = require('../controllers/index')
+  , user = require('../controllers/user');
 
-/*
- * GET home page.
- */
+var routes = function(app){
+  app.get('/', index.index);
+  app.get('/users', user.list);
+};
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+module.exports = function(app){
+  return routes(app);
 };

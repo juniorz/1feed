@@ -4,8 +4,6 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -32,8 +30,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+//Must setup the routes after the middleware
+require('./routes')(app);
 
 //Starts the server
 http.createServer(app).listen(app.get('port'), function(){
