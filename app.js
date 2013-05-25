@@ -14,6 +14,9 @@ app.configure(function(){
   app.set('facebook app id', process.env.FACEBOOK_APP_ID);
   app.set('facebook app secret', process.env.FACEBOOK_APP_SECRET);
 
+  app.set('twitter consumer key', process.env.TWITTER_CONSUMER_KEY);
+  app.set('twitter consumer secret', process.env.TWITTER_CONSUMER_SECRET);
+
   app.set('root url', 'https://one-feed.herokuapp.com')
 });
 
