@@ -11,6 +11,8 @@ env:
       VIVNq8LXOgNgB/6qQvzbSy641lecKz2ywGIP1/f1m7P2JZNkWBLeCchKkxSe
 
       f6WruQeycYsdVhrONKvFzSIZJMu0sdGQLOerX05lmWfmv5qrzt8='
+before_script:
+    - "sudo npm i -g jasmine-node"
 after_success:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - git remote add heroku git@heroku.com:one-feed.git
