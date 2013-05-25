@@ -12,7 +12,7 @@ env:
 
       f6WruQeycYsdVhrONKvFzSIZJMu0sdGQLOerX05lmWfmv5qrzt8='
 after_success:
-  - if [[ "$TRAVIS_NODE_VERSION" -ne "0.10" ]]; then
+  - if [[ ! "$TRAVIS_NODE_VERSION" == "0.10" ]]; then
   -   echo "Testing node v${TRAVIS_NODE_VERSION} is only for compatibility."
   -   exit 0
   - fi
