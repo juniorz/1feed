@@ -9,10 +9,24 @@ var express = require('express')
 
 var app = express();
 
+app.configure(function(){
+  //TODO: fallback to a file not checked in
+  app.set('facebook app id', process.env.FACEBOOK_APP_ID);
+  app.set('facebook app secret', process.env.FACEBOOK_APP_SECRET);
+
+  app.set('root url', 'https://one-feed.herokuapp.com')
+});
+
+app.configure('development', function(){
+  app.set('root url', 'http://localhost:3000')
+});
+
 var facebookGlobals = function(req, res, next){
   res.locals.FACEBOOK_APP_ID = app.get('facebook app id');
   next();
 };
+
+passport = require('./lib/passport').init(app);
 
 // all environments
 app.configure(function(){
@@ -26,13 +40,11 @@ app.configure(function(){
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(facebookGlobals);
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
-
-  //TODO: fallback to a file not checked in
-  app.set('facebook app id', process.env.FACEBOOK_APP_ID);
-  app.set('facebook app secret', process.env.FACEBOOK_APP_SECRET);
 });
 
 // development only
