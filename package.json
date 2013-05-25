@@ -12,6 +12,7 @@
     "less-middleware": "*",
     "passport": "*",
     "passport-facebook": "*",
+    "passport-linkedin": "*",
     "passport-twitter": "*"
   },
   "devDependencies": {

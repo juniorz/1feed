@@ -17,6 +17,9 @@ app.configure(function(){
   app.set('twitter consumer key', process.env.TWITTER_CONSUMER_KEY);
   app.set('twitter consumer secret', process.env.TWITTER_CONSUMER_SECRET);
 
+  app.set('linkedin app id', process.env.LINKEDIN_APP_ID);
+  app.set('linkedin app secret', process.env.LINKEDIN_APP_SECRET);
+
   app.set('root url', 'https://one-feed.herokuapp.com')
 });
 

@@ -7,6 +7,12 @@ var routes = function(app){
   app.get('/', index.index);
   app.get('/users', user.list);
 
+  app.get('/auth/linkedin', passport.authenticate('linkedin'));
+  app.get("/auth/linkedin/callback", passport.authenticate('linkedin', {
+    successRedirect: '/',
+    failureRedirect: '/?failure-at-login'
+  }));
+
   app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'read_stream'}));
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {
     successRedirect: '/',
