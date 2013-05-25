@@ -1,3 +1,9 @@
-h1 Welcome to App
-p
-  Using jade!
+html(ng-app="one-feed")
+  head
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js")
+    script(src="/javascript/module.js")
+  body
+    div
+      h1 Hello {{nome}}
+      input(type="text", ng-model="nome", placeholder="Put your name here")
+

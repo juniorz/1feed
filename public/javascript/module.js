@@ -1,0 +1,1 @@
+angular.module("one-feed", []);
