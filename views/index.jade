@@ -1,11 +1,8 @@
-html(ng-app="one-feed")
-  head
-    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js")
-    script(src="/javascript/module.js")
-  body
-    a(href="//github.com/juniorz/one-feed")
-      img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", alt="Fork me on GitHub")
-    div
-      h1 Hello {{nome}}
-      input(type="text", ng-model="nome", placeholder="Put your name here")
+extends layout
 
+block content
+  a(href="//github.com/juniorz/one-feed")
+    img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", alt="Fork me on GitHub")
+  div
+    h1 Hello {{nome}}
+    input(type="text", ng-model="nome", placeholder="Put your name here")
