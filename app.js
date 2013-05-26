@@ -20,10 +20,19 @@ app.configure(function(){
   app.set('linkedin app id', process.env.LINKEDIN_APP_ID);
   app.set('linkedin app secret', process.env.LINKEDIN_APP_SECRET);
 
-  app.set('root url', 'https://one-feed.herokuapp.com')
+  app.set('database url', process.env.DATABASE_URL);
+  app.set('root url', 'https://one-feed.herokuapp.com');
 });
 
 app.configure('development', function(){
+  app.set('database url', process.env.DATABASE_URL || {
+    database : "one_feed",
+    protocol : "sqlite",
+    query    : {
+      debug    : true
+    }
+  });
+
   app.set('root url', 'http://localhost:3000')
 });
 
@@ -33,6 +42,7 @@ var facebookGlobals = function(req, res, next){
 };
 
 passport = require('./lib/passport').init(app);
+orm = require('./lib/orm')(app);
 
 // all environments
 app.configure(function(){
@@ -41,6 +51,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
+  app.use(orm);
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
