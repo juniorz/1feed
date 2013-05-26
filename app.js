@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , http = require('http')
   , path = require('path');
@@ -36,11 +31,6 @@ app.configure('development', function(){
   app.set('root url', 'http://localhost:3000')
 });
 
-var facebookGlobals = function(req, res, next){
-  res.locals.FACEBOOK_APP_ID = app.get('facebook app id');
-  next();
-};
-
 passport = require('./lib/passport').init(app);
 orm = require('./lib/orm')(app);
 
@@ -56,7 +46,6 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
-  app.use(facebookGlobals);
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
