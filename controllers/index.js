@@ -1,3 +1,7 @@
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  req.models.user.find(function(err, users){
+    res.render('index', {
+      users: users
+    });
+  });
 };

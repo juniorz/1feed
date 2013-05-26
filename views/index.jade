@@ -7,6 +7,10 @@ block content
     h1 Hello {{nome}}
     input(type="text", ng-model="nome", placeholder="Put your name here")
 
+    - users.forEach(function(user){
+      p Welcome <strong>#{user.name}</strong>!
+    - })
+
     p
       a(href="/auth/facebook") Login with Facebook (via server)
 
