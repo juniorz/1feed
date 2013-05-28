@@ -4,6 +4,8 @@ node_js:
 - '0.10'
 - '0.8'
 - '0.6'
+before_scripts:
+  - sh jslint.sh
 env:
   global:
     secure: ! 'HMiCsec03MYZB1aTvx6cECd/fHBagNqWcNt9UKLf38DsyrX8hI8JPDSwQ2g4
@@ -28,3 +30,5 @@ after_success:
   - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   - yes | heroku keys:add
   - yes | git push heroku master
+after_failure:
+  - cat jslint.out

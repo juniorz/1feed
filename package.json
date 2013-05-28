@@ -16,7 +16,9 @@
     "passport": "*",
     "passport-facebook": "*",
     "passport-linkedin": "*",
-    "passport-twitter": "*"
+    "passport-twitter": "*",
+    "jslint-core": "https://github.com/One-com/jslint-core/tarball/module",
+    "jslint": "https://github.com/bramstein/jslint/tarball/master"
   },
   "devDependencies": {
     "jasmine-node": "*",

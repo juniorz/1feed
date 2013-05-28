@@ -1,0 +1,7 @@
+{
+  "maxerr": 100,
+  "strict": true,
+  "maxlen": 80,
+  "newcap": true,
+  "eval": false
+}
