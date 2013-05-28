@@ -4,7 +4,7 @@ node_js:
 - '0.10'
 - '0.8'
 - '0.6'
-before_scripts:
+before_script:
   - sh jslint.sh
 env:
   global:
