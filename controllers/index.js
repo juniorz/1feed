@@ -1,10 +1,12 @@
+/* jslint node: true */
+"use strict";
 var Q = require('q');
 
 exports.index = function(req, res){
 
   function render(users){
     res.render('index', {
-      users: users || []
+      users: (req.user && [req.user]) || []
     });
   }
 
@@ -15,8 +17,9 @@ exports.index = function(req, res){
   .fail(function(error){
     //This is a clever way to define fallback
     console.log('! Noooooooo.' + error);
-    render()
+    render();
   })
   .done();
+};
 
 };

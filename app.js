@@ -1,3 +1,6 @@
+/* jslint node: true */
+"use strict";
+
 var express = require('express')
   , http = require('http')
   , path = require('path');
@@ -28,27 +31,27 @@ app.configure('development', function(){
     }
   });
 
-  app.set('root url', 'http://localhost:3000')
+  app.set('root url', 'http://localhost:3000');
 });
 
-passport = require('./lib/passport').init(app);
-orm = require('./lib/orm')(app);
+var passport = require('./lib/passport').init(app);
+var orm = require('./lib/orm')(app);
 
 // all environments
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(orm);
+  app.use(express.cookieParser('your secret here'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
+  app.set('view engine', 'jade');
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
 });
