@@ -1,0 +1,12 @@
+{
+  "node": true,
+  // legibility
+  "maxlen": 80,
+  //"indent": 2,
+  //"quotmark": true, //consistency -> grepability
+
+  "newcap": true,
+  "strict": true,
+  "unused": true,
+  "undef": true
+}
