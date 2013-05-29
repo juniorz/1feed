@@ -1,10 +1,18 @@
 !!! 5
-html(ng-app="one-feed")
+html(lang="en", ng-app="one-feed")
   head
-    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js")
-    script(src="/javascript/module.js")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/stylesheets/vendor/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/vendor/bootstrap-responsive.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
     title One Feed
-    link(rel='stylesheet', '/style.css')
   body
-    block content
+    div.container
+      block content
+
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js")
+    script(src="/javascripts/module.js")
+    script(src="/javascripts/vendor/bootstrap.js")
     block scripts
